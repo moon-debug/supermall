@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive exclude="Detail">
+      <router-view/>
+    </keep-alive>
     <main-tab-bar class="main-tab-bar"/>
   </div>
 </template>
@@ -22,6 +24,6 @@ export default {
   .main-tab-bar {
     /* position: absolute; */
     width: 100%;
-    z-index: 999;
+    z-index: 8;
   }
 </style>

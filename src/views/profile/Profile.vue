@@ -1,6 +1,6 @@
 <template>
   <div>
-    <scroll class="wrapper" :pull-up-load="false">
+    <scroll class="wrapper">
       <ul>
         <li>data1</li>
         <li>data2</li>
