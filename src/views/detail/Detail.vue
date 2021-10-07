@@ -15,7 +15,7 @@
     <detail-bottom-bar @addCart="addToCart"/>
     <back-top @click.native="backClick" v-show="isShowBackTop"/>
 
-    <toast message="hhhhhhh"/>
+    <!-- <toast :message="message" :show="show"/> -->
   </div>
 </template>
 
@@ -31,7 +31,7 @@ import DetailBottomBar from './childComps/DetailBottomBar.vue'
 
 import Scroll from 'components/common/scroll/Scroll'
 import GoodsList from 'components/content/goods/GoodsList'
-import Toast from 'components/common/toast/Toast'
+// import Toast from 'components/common/toast/Toast'
 
 import {getDetail, Goods, Shop, GoodsParam, getRecommend} from 'network/detail'
 import {itemListenerMixin, backTopMixin} from 'common/mixin.js'
@@ -52,7 +52,7 @@ export default {
     DetailBottomBar,
     Scroll,
     GoodsList,
-    Toast
+    // Toast
   },
   mixins: [itemListenerMixin, backTopMixin],
   data() {
@@ -68,7 +68,9 @@ export default {
       // itemImgListener: null,
       themeTopYs: [],
       getThemeTopY: null,
-      currentIndex: 0
+      currentIndex: 0,
+      // message: "",
+      // show: false
     }
   },
   created() {
@@ -174,7 +176,17 @@ export default {
 
       // 使用mapActions映射后
       this.addCart(product).then(res => {
-        console.log(res);
+        // // console.log(res);
+        // this.show = true;
+        // this.message = res;
+        // setTimeout(() => {
+        //   this.show = false;
+        //   this.message = ''
+        // }, 1500)
+
+        // console.log(res);
+        // console.log(this.$toast);
+        this.$toast.show(res)
       })
     }
   },
@@ -200,9 +212,10 @@ export default {
   }
 
   .wrapper {
-    /* height: calc(100% - 44px - 58px); */
+    height: calc(100% - 44px - 58px);
     background-color: #fff;
     position: absolute;
+    overflow: hidden;
     top: 44px;
     bottom: 58px;
     left: 0;

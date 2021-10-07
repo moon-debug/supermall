@@ -10,7 +10,7 @@
       合计：{{totalPrice}}
     </div>
 
-    <div class="calculate">
+    <div class="calculate" @click="calcClick">
       去计算({{checkedLength}})
     </div>
   </div>
@@ -74,6 +74,11 @@ export default {
       // 储存isSelectAll的值之后可简化
       this.checkBoolean = this.isSelectAll;
       this.cartList.forEach(item => item.checked = !this.checkBoolean)
+    },
+    calcClick() {
+      if (!this.isSelectAll) {
+        
+      }
     }
   }
 }
@@ -82,10 +87,11 @@ export default {
 <style scoped>
   .bottom-bar {
     display: flex;
-    height: 40px;
-    line-height: 40px;
-    bottom: 58px;
-    position: relative;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    bottom: 49px;
+    position: fixed;
     background-color: #eee;
   }
 
