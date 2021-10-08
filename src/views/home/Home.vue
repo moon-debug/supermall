@@ -75,12 +75,12 @@ export default {
   },
   created() {
     // 1.请求多个数据
-    this.getHomeMultidata()
+    this._getHomeMultidata()
 
     // 2.请求商品数据
-    this.getHomeGoods('pop')
-    this.getHomeGoods('new')
-    this.getHomeGoods('sell')
+    this._getHomeGoods('pop')
+    this._getHomeGoods('new')
+    this._getHomeGoods('sell')
   },
   activated() {
     // console.log('activated');
@@ -88,7 +88,6 @@ export default {
     this.$refs.scroll.refresh()
   },
   deactivated() {
-    // console.log('deactivated');
     // 1.保存y值
     this.saveY = this.$refs.scroll.getScrollY()
     // console.log(this.saveY);
@@ -96,9 +95,6 @@ export default {
     // 2.取消全局事件的监听
     // this.$bus.$off('homeItemImgLoad', this.itemImgListener)
     // this.$bus.$off('itemImgLoad', this.itemImgListener)
-  },
-  mounted() {
-    // console.log('home');
   },
   methods: {
     // 事件监听相关
@@ -115,7 +111,6 @@ export default {
     },
     
     contentScroll(position) {
-      // console.log(position);
       // 1.backTop是否出现
       // this.isShowBackTop = -position.y > 1000 ? true : false
       this.isShowBackTop = (-position.y) > 1000
@@ -123,23 +118,20 @@ export default {
       this.isTabFixed = (-position.y) > this.tabOffsetTop ? true : false
     },
     loadMore() {
-      this.getHomeGoods(this.currentType)
+      this._getHomeGoods(this.currentType)
     },
     swiperImgLoad() {
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
     },
-    // featureLoad() {
-    //   this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
-    // },
 
     // 网络请求相关
-    getHomeMultidata() {
+    _getHomeMultidata() {
       getHomeMultidata().then(res => {
         this.banners = res.data.banner.list;
         this.recommends = res.data.recommend.list;
       })
     },
-    getHomeGoods(type) {
+    _getHomeGoods(type) {
       const page = this.goods[type].page + 1
       getHomeGoods(type, page).then(res => {
         // console.log('----------');
