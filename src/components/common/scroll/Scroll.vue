@@ -40,8 +40,8 @@ export default {
       click: true,
       probeType: this.probeType,
       pullUpLoad: this.pullUpLoad,
-      // observeDom: true,
-      // observeImage: true
+      observeDom: true,
+      observeImage: true
     })
 
     // 2.监听滚动的位置

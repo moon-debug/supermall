@@ -38,7 +38,8 @@ import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll.vue'
 
 import { getHomeMultidata, getHomeGoods } from 'network/home.js'
-import { itemListenerMixin, backTopMixin } from 'common/mixin.js'
+import { backTopMixin } from 'common/mixin.js'
+// import { itemListenerMixin, backTopMixin } from 'common/mixin.js'
 
 export default {
   name: "Home",
@@ -66,7 +67,7 @@ export default {
       saveY: 0,
     }
   },
-  mixins: [itemListenerMixin, backTopMixin],
+  mixins: [backTopMixin],
   computed: {
     showGoods() {
       return this.goods[this.currentType].list

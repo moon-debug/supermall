@@ -197,9 +197,9 @@ export default {
     // this.$bus.$off('detailItemImgLoad', this.itemImgListener)
     this.$bus.$off('itemImgLoad', this.itemImgListener)
   },
-  updated() {
-    this.$refs.scroll.refresh()
-  }
+  // updated() {
+  //   this.$refs.scroll.refresh()
+  // }
 }
 </script>
 
