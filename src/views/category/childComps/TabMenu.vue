@@ -33,19 +33,19 @@ export default {
       this.$emit('selectItem', index)
     }
   },
-  // updated() {
-  //   this.$refs.scroll.refresh()
-  // }
+  updated() {
+    this.$refs.scroll.refresh()
+  }
 }
 </script>
 
 <style scoped>
   #tab-menu {
     background-color: #f6f6f6;
-    height: 100%;
+    height: (100% - 44px - 49px);
     width: 100px;
     box-sizing: border-box;
-    /* overflow: hidden; */
+    overflow: hidden;
   }
 
   .menu-list-item {
